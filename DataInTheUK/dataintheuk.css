@@ -1,0 +1,151 @@
+/* hide function */
+.hide{
+display: none;
+}
+/* body part */
+body{
+width: 100%;
+background-image: url(./backgroundData.jpg);
+opacity: 0.8;
+background-size: cover;
+}
+/* make databox style like a table */
+.DataBox{
+display: flex;
+align-items: center;
+width: 100%;
+margin: 0,auto;
+padding-top: 50px;
+color: rgb(23, 81, 133);
+justify-content: center;
+}
+/* data container */
+.totalCases,
+.totalDeaths{
+text-align: initial;
+padding: 100px;
+}
+.totalPatients{
+text-align: initial;
+padding: 100px;
+}
+/* data labels */
+.labelCases{
+font-size: 2.1em;
+font-weight: 400;
+color:darkorange;
+}
+.labelDeaths{
+font-size: 2.5em;
+font-weight: bolder;
+color: crimson;
+}
+.labelPatients{
+font-size: 2.7em;
+font-weight: 700;
+color: yellowgreen;
+}
+/* data content */
+.totalCases .totalNumber{
+color: blueviolet;
+font-size: 2em;
+padding-left: 60px;
+}
+.totalDeaths .totalNumber{
+color:brown;
+font-size: 2em;
+padding-left: 60px;
+}
+.totalPatients .totalNumber{
+color:greenyellow;
+font-size: 2em;
+padding-left: 120px;
+}
+/* data text size */
+.totalCases{
+font-size: 1.1em;
+font-weight: 200;
+color:darkorange;
+padding-left: 3.4em;
+padding-top: 2px;
+}
+.totalDeaths{
+font-size: 1.1em;
+font-weight: 200;
+color:darkred;
+padding-left: 3.4em;
+padding-top: 2px;
+}
+.totalPatients{
+font-size: 1.1em;
+font-weight: 200;
+color:aqua;
+padding-left: 6.5em;
+padding-top: 2px;
+}
+/* introduction */
+.infor{
+text-align: center;
+margin-top: 5%;
+}
+.infor h2{
+font-size: 60px;
+}
+.buttons{
+text-align: center;
+margin-top: 1%;
+}
+/* chart */
+#UkChartTotal{
+min-width: 400px;
+min-height: 100px;
+max-width: 1000px;
+max-height: 1000px;
+position: relative;
+bottom:70px;
+margin-left: 350px;
+}
+/* responsive for phones */
+@media screen and (max-width:600px){
+    *{
+        font-size: small;
+        padding: 0;
+        margin: 0;
+    }
+    .Data{
+        left: 300px;
+        flex-direction: column;
+        max-width: 500px;
+    }
+    .totalCases,
+    .totalPatients,
+    .totalDeaths{
+        max-width: 300px;
+        font-size: 1px;
+        padding:50px;
+    }
+    .totalPatients .totalNumber,
+    .totalCases .totalNumber,
+    .totalDeaths .totalNumber{
+        padding-left:0px;
+    }
+    .DataBox{
+        align-items: unset;
+        max-width: 500px;
+        width: 100%;
+        margin: 0;
+        color: rgb(23, 81, 133);
+    }
+    #UkChartTotal{
+        position: relative;
+        width: 100%;
+        height: 200%;
+        max-width: 400px;
+        max-height: 500px;
+        bottom:0;
+        margin: 0;
+    }
+    .infor h2{
+        font-size: 20px;
+    }
+}

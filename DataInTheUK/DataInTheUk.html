@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta -->
+        <title>Data in the UK</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width,initial-scale=1.0" /> 
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <!-- Chart.js -->
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
+        <!-- Style -->
+        <link rel="stylesheet" href="./dataintheuk.css">
+    </head>
+    <body>
+        <!-- navbar, source from: https://getbootstrap.com/docs/5.0/components/navbar/-->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Data<br>  In the <br> UK</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../homepage.html"><br>HomePage |</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Selectoption/selectArea.html"> <br> Which tier you live |</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Policy/rules.html"> <br> Policy:What is tier system |</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../covidinTheUK/CovidIntheUK.html"> <br> Covid-19 in the UK |</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../covidAroundtheWorld/covidAroundtheWorld.html"> <br> Covid-19 around the world |</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="../DataInTheUK/DataInTheUk.html"><br>Data in the UK |</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../hospitalDuram/DurhamHospitalMap.html"><br>Hospitals in Durham |</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../hospitalDuram/durhamShop.html"><br>Shops in Durham |</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <br>Covid map in the England
+                                </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="../map/map.html">Cases map</a></li>
+                            <li><a class="dropdown-item" href="../map/mapDeaths.html">Deaths map</a></li>
+                            <li><a class="dropdown-item" href="../map/mapHospital.html">Patients map</a></li>
+                        </ul>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+        </nav>
+        <!-- General introduction -->
+        <div class="infor">
+            <h2 class="infor">This is data in the UK.</h2>
+        </div>
+        <!-- Buttons -->
+        <div class="buttons">
+            <button id="UK" onclick="UK()">UK</button>
+            <button id="England" onclick="England()">England</button>
+            <button id="NorthernIreland" onclick="North()">Northern Ireland</button>
+            <button id="Scotland" onclick="Scoland()">Scotland</button>
+            <button id="Wales" onclick="Wales()">Wales</button>
+        </div>
+        <!-- Data box -->
+        <div class="Data">
+            <div class="DataBox">
+                <div class="totalCases">
+                    <div class="labelCases">Total Cases</div>
+                    <div class="totalNumber">0</div>
+                </div>
+                <div class="totalDeaths">
+                    <div class="labelDeaths">Total Deaths</div>
+                    <div class="totalNumber">0</div>
+                </div>
+                <div class="totalPatients">
+                    <div class="labelPatients">Total Patients </div>
+                    <div class="totalNumber">0</div>
+                </div>
+            </div>
+            <!-- Chart -->
+            <div class="chart">
+                <canvas id="UkChartTotal"></canvas>
+            </div>
+        </div>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    <!-- JS code -->
+    <script src="../allJS/DataInTheUk.js"></script>
+    </body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--required meta-->
+        <meta charset="utf-8">
+        <title>Covid-19 around the world.</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Hospitals in durham</title>
+        <!-- Leaflet -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+        <!-- Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <!-- map js -->
+        <script src="../allJS/durhamcounty.js"></script>
+        <!-- Styles -->
+        <style>
+            /* body part */
+            body{
+                height: 100%;
+                margin: 0;
+            }
+            /* map part */
+            #map{
+                min-width: 400px;
+                min-height: 400px;
+                width: 100%;
+                height: 100%;
+                position: fixed;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- navbar part, code source:https://getbootstrap.com/docs/5.0/components/navbar/ -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">Hospital<br>  Map In <br> the UK</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link" aria-current="page" href="../homepage.html"><br>HomePage |</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Selectoption/selectArea.html"> <br> Which tier you live |</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../Policy/rules.html"> <br> Policy:What is tier system |</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../covidinTheUK/CovidIntheUK.html"> <br> Covid-19 in the UK |</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../covidAroundtheWorld/covidAroundtheWorld.html"> <br> Covid-19 around the world |</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../DataInTheUK/DataInTheUk.html"><br>Data in the UK |</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="../hospitalDuram/DurhamHospitalMap.html"><br>Hospitals in Durham |</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../hospitalDuram/durhamShop.html"><br>Shops in Durham |</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <br>Covid map in the England
+                                </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                            <li><a class="dropdown-item" href="../map/map.html">Cases map</a></li>
+                            <li><a class="dropdown-item" href="../map/mapDeaths.html">Deaths map</a></li>
+                            <li><a class="dropdown-item" href="../map/mapHospital.html">Patients map</a></li>
+                        </ul>
+                            </li>
+                        </ul>
+                    </div>
+            </div>
+        </nav>
+        <!-- map part -->
+        <div id="map"></div>
+        <!-- JS -->
+        <script>
+        /* source: https://leafletjs.com/examples/quick-start/ */
+        // mapbox code
+        var mapboxAccessToken = 'pk.eyJ1IjoiY3ZobTM0IiwiYSI6ImNrazVyZDZrcDBkeHYybmxrdDg1ZHBxNjIifQ.SIhx11FKp7V2CCAxdthGrw';
+        // get map coordinate and zoom
+        var map = L.map('map').setView([54.57753, -1.5746], 10);
+        // get tile from mapbox.
+        L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=' + mapboxAccessToken, {
+            id: 'mapbox/light-v9',
+            tileSize: 512,
+            zoomOffset: -1
+        }).addTo(map);
+        // add json to map. source: http://martinjc.github.io/UK-GeoJSON/
+        L.geoJson(geomap).addTo(map);
+        // hospital places, source: https://www.google.co.uk/maps
+        var markeNorthdurham = L.marker([54.788677, -1.593539]).addTo(map);
+        markeNorthdurham.bindPopup("<b>University Hospital Of North Durham</b><br>Post code: DH1 5TW <br> phone number:0191 333 2333<br>website:cddft.nhs.uk <br> Open hours: 24 hours").openPopup();
+        var markeBishop = L.marker([54.6558,-1.6785]).addTo(map);
+        markeBishop.bindPopup("<b>Bishop Auckland Hospital</b><br>Post code: DL14 6AD <br> phone number:01388 455000<br>website:cddft.nhs.uk <br> Open hours: From 8am to 6:30pm").openPopup();
+        var markeDarlington = L.marker([54.6006,-1.5637]).addTo(map);
+        markeDarlington.bindPopup("<b>Darlington Memorial Hospital</b><br>Post code: DL3 6HX <br> phone number:01325 380100<br>website:cddft.nhs.uk <br> Open hours: 24 hours").openPopup();
+        var markeChester = L.marker([ 54.8509,-1.5751]).addTo(map);
+        markeChester.bindPopup("<b>Chester-le-Street Community Hospital</b><br>Post code: DH3 3AT <br> phone number:0191 3876331<br>website:cddft.nhs.uk <br> Open hours: From 8am to 6:30pm").openPopup();
+        var markeShotley = L.marker([54.8691,-1.8428]).addTo(map);
+        markeShotley.bindPopup("<b>Shotley Bridge Community Hospital</b><br>Post code: DH8 0NB <br> phone number:0191 333 2333<br>website:nhs.uk <br> Open hours: From 9am to 5:30pm").openPopup();
+        var markeRichardson = L.marker([54.5457,-1.9162]).addTo(map);
+        markeRichardson.bindPopup("<b>Richardson Hospital</b><br>Post code: DL12 8HT <br> phone number:01833 696 500<br>website:cddft.nhs.uk <br> Open hours: From 8am to 6:30pm").openPopup();
+        var markeSedgefield = L.marker([54.6619,-1.4485]).addTo(map);
+        markeSedgefield.bindPopup("<b>Sedgefield Community Hospital</b><br>Post code: TS21 3EE <br> phone number: 01740 626600<br>website:nhs.uk <br> Open hours: From 9am to 5:30pm").openPopup();
+        var markeWeardale = L.marker([54.748,-2.0186]).addTo(map);
+        markeWeardale.bindPopup("<b>Weardale Community Hospital</b><br>Post code: DL13 2JR <br> phone number:01388 528233<br>website:cddft.nhs.uk <br> Open hours: From 8am to 6:30pm").openPopup();
+        </script>
+        <!-- leatlet -->
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+         integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+         crossorigin=""/>
+        <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+         integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+         crossorigin=""></script>
+         <!-- Bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    </body>
+</html>
